@@ -1,12 +1,13 @@
+//åˆ›å»ºé“¾è¡¨ï¼Œå¹¶ä¸”ä»¥é¡ºåºå’Œå€’åºè¾“å‡º
 #include<iostream>
 #include<stack>
 using namespace std;
-struct ListNode {//Á´±íÊı¾İ½á¹¹
+struct ListNode {//é“¾è¡¨æ•°æ®ç»“æ„
 	int m_nKey;
 	ListNode* m_pNext;
 };
 
-ListNode* NewList(int n) {//´´½¨³¤¶ÈÎªnµÄÁ´±í
+ListNode* NewList(int n) {//åˆ›å»ºé•¿åº¦ä¸ºnçš„é“¾è¡¨
 	ListNode *pHead=new ListNode;
 	pHead->m_pNext = NULL;
 	ListNode*p = pHead;
@@ -19,8 +20,8 @@ ListNode* NewList(int n) {//´´½¨³¤¶ÈÎªnµÄÁ´±í
 	return pHead;
 }
 
-void PrintList(ListNode* pHead) {//¸ø¶¨Í·Ö¸Õëµ¹ĞòÊä³öÁ´±í
-	stack<ListNode*>nodes;//¶ÑÕ»Êı¾İ½á¹¹µÄ¶¨Òå
+void PrintList(ListNode* pHead) {//ç»™å®šå¤´æŒ‡é’ˆå€’åºè¾“å‡ºé“¾è¡¨
+	stack<ListNode*>nodes;//å †æ ˆæ•°æ®ç»“æ„çš„å®šä¹‰
 	ListNode* pNode = pHead->m_pNext;
 	while (pNode != nullptr) {
 		nodes.push(pNode);
@@ -32,19 +33,19 @@ void PrintList(ListNode* pHead) {//¸ø¶¨Í·Ö¸Õëµ¹ĞòÊä³öÁ´±í
 	}
 }
 int main() {
-	ListNode* NumList = NewList(8);//ĞÂ½¨³¤¶ÈÎª8µÄÁ´±í
+	ListNode* NumList = NewList(8);//æ–°å»ºé•¿åº¦ä¸º8çš„é“¾è¡¨
 	ListNode*p = NumList->m_pNext;
 	for (int i = 1; i < 9; i++) {
 		p->m_nKey = i;
 		p = p->m_pNext;
 	}
 	p = NumList->m_pNext;
-	while (p != nullptr){//Ë³ĞòÊä³öÁ´±í
+	while (p != nullptr){//é¡ºåºè¾“å‡ºé“¾è¡¨
 		cout << p->m_nKey << endl;
 		p = p->m_pNext;
 	}
 	cout << "----------------" << endl;
-	PrintList(NumList);//µİ¹éµ¹ĞòÊä³öÁ´±í
+	PrintList(NumList);//é€’å½’å€’åºè¾“å‡ºé“¾è¡¨
 
 	return 0;
 }
